@@ -13,9 +13,25 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Leaflet CSS & JS (CDN with fallback readiness) -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Leaflet CSS (Local preferred for file://, CDN fallback) -->
+  <link rel="stylesheet" href="lib/leaflet.css" />
+  <script>
+    // Fallback if local css not found
+    if (!document.querySelector('link[href="lib/leaflet.css"]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+      document.head.appendChild(link);
+    }
+  </script>
+
+  <!-- Leaflet JS (Local preferred for file:// protocol, CDN fallback) -->
+  <script src="lib/leaflet.js"></script>
+  <script>
+    if (typeof L === 'undefined') {
+      document.write('<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"><\/script>');
+    }
+  </script>
   
   <script>
     tailwind.config = {
