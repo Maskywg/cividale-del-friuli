@@ -13,9 +13,9 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Leaflet CSS & JS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!-- Leaflet CSS & JS (CDN with fallback readiness) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   
   <script>
     tailwind.config = {
@@ -910,16 +910,17 @@
     </div>
   </footer>
 
-  <!-- Leaflet Map Script -->
+  <!-- Leaflet Map Script with Layer Toggling & Fallback Safety -->
   <script>
-    let map;
-    let invasionLayerGroup;
-    let impactLayerGroup;
-    let cityLayerGroup;
-    let invasionPolyline;
+    let map = null;
+    let invasionLayerGroup = null;
+    let impactLayerGroup = null;
+    let cityLayerGroup = null;
+    let invasionPolyline = null;
     let invasionMarkers = {};
     let impactMarkers = {};
     let cityMarkers = {};
+    let currentMode = 'invasion';
 
     // 568 Invasion Route points
     const invasionPoints = [
@@ -932,7 +933,7 @@
       { id: 'p4', name: '帕維亞（Pavia）', lat: 45.1847, lng: 9.1582, desc: '<strong>倫巴底王國正式王都</strong><br>經圍城三年於572年攻陷，成為統治全北義的權力中心。', stage: '定都' }
     ];
 
-    // European Legacy & Transformation points (NEW)
+    // European Legacy & Transformation points
     const impactPoints = [
       { id: 'imp_pavia', name: '帕維亞・法典中心', lat: 45.1847, lng: 9.1582, desc: '<strong>成文法典先驅</strong><br>西元643年《羅塔里法典》在此頒布，確立「賠償金（Wergild）」制度，奠定歐洲封建法秩序。' },
       { id: 'imp_monza', name: '蒙札・宗教皈依與鐵冠', lat: 45.5845, lng: 9.2744, desc: '<strong>特奧多琳達王后與天主教化</strong><br>推動全體倫巴底人皈依天主教，消弭蠻族與羅馬藩籬，傳奇「倫巴底鐵冠」保存於此。' },
@@ -950,28 +951,40 @@
     ];
 
     function initMap() {
+      if (typeof L === 'undefined') {
+        console.warn('Leaflet not loaded yet, retrying...');
+        setTimeout(initMap, 200);
+        return;
+      }
+      if (map) return;
+
+      const mapContainer = document.getElementById('interactive-map');
+      if (!mapContainer) return;
+
       map = L.map('interactive-map', {
         zoomControl: true,
         scrollWheelZoom: true
       }).setView([46.4, 13.5], 7);
 
-      // Dark Matter Map Tiles
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      // Dark Matter Map Tiles with OSM fallback
+      const darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="https://carto.com/">CARTO</a>, &copy; <a href="https://openstreetmap.org">OSM</a>',
         subdomains: 'abcd',
         maxZoom: 19
-      }).addTo(map);
+      });
+      darkTiles.addTo(map);
 
-      invasionLayerGroup = L.layerGroup().addTo(map);
-      impactLayerGroup = L.layerGroup().addTo(map);
-      cityLayerGroup = L.layerGroup().addTo(map);
+      // Separate Layer Groups
+      invasionLayerGroup = L.layerGroup();
+      impactLayerGroup = L.layerGroup();
+      cityLayerGroup = L.layerGroup();
 
       // 1. Draw Invasion Route
       const routeCoords = invasionPoints.map(p => [p.lat, p.lng]);
       invasionPolyline = L.polyline(routeCoords, {
         color: '#EF4444',
         weight: 4,
-        opacity: 0.85,
+        opacity: 0.9,
         dashArray: '8, 8',
         lineCap: 'round'
       }).addTo(invasionLayerGroup);
@@ -995,7 +1008,7 @@
         invasionMarkers[p.id] = marker;
       });
 
-      // 2. Impact Markers (Sky Blue pins)
+      // 2. Impact Markers
       impactPoints.forEach((p, idx) => {
         const pinHtml = `<div class="custom-impact-pin" style="width:30px; height:30px;">⚖️</div>`;
         const icon = L.divIcon({
@@ -1014,7 +1027,7 @@
         impactMarkers[p.id] = marker;
       });
 
-      // 3. City Markers (Gold pins)
+      // 3. City Markers
       cityPoints.forEach((p, idx) => {
         const pinHtml = `<div class="custom-map-pin" style="width:30px; height:30px;">★</div>`;
         const icon = L.divIcon({
@@ -1032,9 +1045,20 @@
         `);
         cityMarkers[p.id] = marker;
       });
+
+      // Initial active layer
+      switchMapView('invasion');
+
+      // Guarantee proper sizing when rendered
+      setTimeout(() => {
+        map.invalidateSize();
+      }, 300);
     }
 
     function switchMapView(mode) {
+      if (!map) return;
+      currentMode = mode;
+
       const btnInvasion = document.getElementById('btn-view-invasion');
       const btnImpact = document.getElementById('btn-view-impact');
       const btnCity = document.getElementById('btn-view-city');
@@ -1042,28 +1066,39 @@
       const panelImpact = document.getElementById('panel-impact');
       const panelCity = document.getElementById('panel-city');
 
-      // Reset all buttons
+      // Reset all buttons style
       [btnInvasion, btnImpact, btnCity].forEach(b => {
-        b.className = "py-2.5 px-2 rounded-lg text-xs font-semibold tracking-wider transition-all text-stone-400 hover:text-white hover:bg-white/5 text-center";
+        if (b) b.className = "py-2.5 px-2 rounded-lg text-xs font-semibold tracking-wider transition-all text-stone-400 hover:text-white hover:bg-white/5 text-center";
       });
-      // Hide all panels
-      panelInvasion.classList.add('hidden');
-      panelImpact.classList.add('hidden');
-      panelCity.classList.add('hidden');
+
+      // Hide all card panels
+      if (panelInvasion) panelInvasion.classList.add('hidden');
+      if (panelImpact) panelImpact.classList.add('hidden');
+      if (panelCity) panelCity.classList.add('hidden');
+
+      // Remove all layers first for clarity
+      if (invasionLayerGroup) map.removeLayer(invasionLayerGroup);
+      if (impactLayerGroup) map.removeLayer(impactLayerGroup);
+      if (cityLayerGroup) map.removeLayer(cityLayerGroup);
 
       if (mode === 'invasion') {
-        btnInvasion.className = "py-2.5 px-2 rounded-lg text-xs font-semibold tracking-wider transition-all bg-gradient-to-r from-red-700 to-brand-wine text-white shadow text-center font-bold";
-        panelInvasion.classList.remove('hidden');
+        if (btnInvasion) btnInvasion.className = "py-2.5 px-2 rounded-lg text-xs font-semibold tracking-wider transition-all bg-gradient-to-r from-red-700 to-brand-wine text-white shadow text-center font-bold";
+        if (panelInvasion) panelInvasion.classList.remove('hidden');
+        if (invasionLayerGroup) invasionLayerGroup.addTo(map);
         resetInvasionView();
       } else if (mode === 'impact') {
-        btnImpact.className = "py-2.5 px-2 rounded-lg text-xs font-semibold tracking-wider transition-all bg-gradient-to-r from-sky-600 to-indigo-800 text-white shadow text-center font-bold";
-        panelImpact.classList.remove('hidden');
+        if (btnImpact) btnImpact.className = "py-2.5 px-2 rounded-lg text-xs font-semibold tracking-wider transition-all bg-gradient-to-r from-sky-600 to-indigo-800 text-white shadow text-center font-bold";
+        if (panelImpact) panelImpact.classList.remove('hidden');
+        if (impactLayerGroup) impactLayerGroup.addTo(map);
         resetImpactView();
       } else {
-        btnCity.className = "py-2.5 px-2 rounded-lg text-xs font-semibold tracking-wider transition-all bg-gradient-to-r from-brand-gold to-brand-goldDark text-black shadow text-center font-bold";
-        panelCity.classList.remove('hidden');
+        if (btnCity) btnCity.className = "py-2.5 px-2 rounded-lg text-xs font-semibold tracking-wider transition-all bg-gradient-to-r from-brand-gold to-brand-goldDark text-black shadow text-center font-bold";
+        if (panelCity) panelCity.classList.remove('hidden');
+        if (cityLayerGroup) cityLayerGroup.addTo(map);
         resetCityView();
       }
+
+      map.invalidateSize();
     }
 
     function resetInvasionView() {
@@ -1087,6 +1122,18 @@
 
     function focusCoord(lat, lng, zoom, markerId) {
       if (!map) return;
+      
+      // Ensure layer is visible
+      if (invasionMarkers[markerId] && !map.hasLayer(invasionLayerGroup)) {
+        invasionLayerGroup.addTo(map);
+      }
+      if (impactMarkers[markerId] && !map.hasLayer(impactLayerGroup)) {
+        impactLayerGroup.addTo(map);
+      }
+      if (cityMarkers[markerId] && !map.hasLayer(cityLayerGroup)) {
+        cityLayerGroup.addTo(map);
+      }
+
       map.setView([lat, lng], zoom, { animate: true, duration: 1 });
       const m = invasionMarkers[markerId] || impactMarkers[markerId] || cityMarkers[markerId];
       if (m) {
@@ -1094,8 +1141,15 @@
       }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
+    // Trigger on both DOMContentLoaded and window load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMap);
+    } else {
       initMap();
+    }
+    window.addEventListener('load', () => {
+      initMap();
+      if (map) map.invalidateSize();
     });
   </script>
 
