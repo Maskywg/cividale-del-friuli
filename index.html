@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>齊維達 Cividale del Friuli｜倫巴底古文明之光與UNESCO世界遺產</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Serif+TC:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#D4AF37',
+              goldLight: '#F5E6A3',
+              goldDark: '#9E7E1D',
+              wine: '#6E1B24',
+              stone: '#F8F6F0',
+              charcoal: '#1A1817',
+              darkcard: '#22201E',
+              borderGold: 'rgba(212, 175, 55, 0.25)'
+            }
+          },
+          fontFamily: {
+            display: ['Cinzel', 'serif'],
+            serif: ['"Noto Serif TC"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #0E0D0C;
+      color: #E6E1DA;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    .font-cividale {
+      font-family: 'Cinzel', serif;
+    }
+    .font-chinese-serif {
+      font-family: 'Noto Serif TC', serif;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFF0C2 0%, #D4AF37 50%, #AA8221 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border {
+      border: 1px solid rgba(212, 175, 55, 0.25);
+    }
+    .gold-border-glow:hover {
+      border-color: rgba(212, 175, 55, 0.8);
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+    }
+    .glass-dark {
+      background: rgba(24, 22, 20, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .hero-mask {
+      background: linear-gradient(180deg, rgba(14, 13, 12, 0.2) 0%, rgba(14, 13, 12, 0.8) 75%, #0E0D0C 100%);
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #121110;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #38342E;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4AF37;
+    }
+  </style>
+</head>
+<body class="selection:bg-brand-gold selection:text-black">
+
+  <!-- Navigation Bar -->
+  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-dark border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center space-x-3 group">
+        <div class="w-10 h-10 rounded-full border border-brand-gold/40 flex items-center justify-center bg-brand-gold/10 group-hover:border-brand-gold transition-colors">
+          <span class="font-cividale text-brand-gold text-base font-bold">FI</span>
+        </div>
+        <div>
+          <span class="font-cividale text-lg font-bold tracking-widest text-white block">CIVIDALE DEL FRIULI</span>
+          <span class="text-xs text-brand-gold/80 tracking-widest uppercase">UNESCO 世界遺產・倫巴底第一公國</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wider">
+        <a href="#origin" class="text-stone-300 hover:text-brand-gold transition-colors">起源與由來</a>
+        <a href="#tempietto" class="text-stone-300 hover:text-brand-gold transition-colors">倫巴底小聖殿</a>
+        <a href="#stucco-saints" class="text-stone-300 hover:text-brand-gold transition-colors">六尊聖女浮雕</a>
+        <a href="#artifacts" class="text-stone-300 hover:text-brand-gold transition-colors">拉奇斯祭壇</a>
+        <a href="#devil-bridge" class="text-stone-300 hover:text-brand-gold transition-colors">魔鬼橋與城貌</a>
+        <a href="#unesco" class="px-4 py-2 rounded-full border border-brand-gold/50 text-brand-gold hover:bg-brand-gold hover:text-black transition-all font-cividale text-xs">
+          UNESCO 遺產
+        </a>
+      </nav>
+      
+      <!-- Mobile menu button -->
+      <a href="#tempietto" class="md:hidden text-xs px-3 py-1.5 rounded border border-brand-gold text-brand-gold">探索</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+    <!-- Hero Background Image -->
+    <div class="absolute inset-0 z-0">
+      <img src="images/ponte_del_diavolo.jpg" alt="Cividale del Friuli 魔鬼橋全景" class="w-full h-full object-cover object-center transform scale-105 filter brightness-75 contrast-110">
+      <div class="hero-mask absolute inset-0"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center mt-12">
+      <!-- Badge -->
+      <div class="inline-flex items-center space-x-3 px-4 py-1.5 rounded-full glass-dark gold-border mb-8 animate-fade-in">
+        <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+        <span class="text-xs uppercase tracking-widest text-brand-gold font-medium">UNESCO World Heritage Site</span>
+        <span class="text-stone-500">•</span>
+        <span class="text-xs text-stone-300 tracking-wider">西元 568 年建立之倫巴底首座公國</span>
+      </div>
+
+      <!-- Main Title -->
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-chinese-serif font-bold text-white tracking-wide mb-6 leading-tight">
+        蠻族初遇羅馬的<br class="hidden sm:block">
+        <span class="gold-gradient-text font-cividale">信仰與藝術微光</span>
+      </h1>
+
+      <p class="font-cividale tracking-widest text-stone-300 text-lg md:text-2xl mb-8 uppercase">
+        Forum Iulii &mdash; Cividale del Friuli
+      </p>
+
+      <!-- Subtitle quote -->
+      <div class="max-w-3xl mx-auto p-6 rounded-2xl glass-dark gold-border text-stone-200 text-base md:text-lg leading-relaxed font-chinese-serif mb-10 shadow-2xl">
+        「西元 568 年，日耳曼系的倫巴底人翻越阿爾卑斯山南下，在此建立了他們在義大利的第一個公國。八世紀留下的『倫巴底小聖殿』，六尊灰泥聖女浮雕是全歐洲少數完整倖存的倫巴底藝術——是蠻族剛剛學會用羅馬的語彙表達信仰的珍貴瞬間。」
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#tempietto" class="px-8 py-4 rounded-xl bg-gradient-to-r from-brand-gold to-brand-goldDark text-black font-semibold text-sm tracking-wider uppercase transition-all transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-gold/30">
+          探索倫巴底小聖殿
+        </a>
+        <a href="#origin" class="px-8 py-4 rounded-xl glass-dark gold-border text-white hover:text-brand-gold font-medium text-sm tracking-wider uppercase transition-all">
+          品讀歷史源流
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: Origin & Name (Forum Iulii) -->
+  <section id="origin" class="py-24 px-6 relative border-t border-white/5 bg-[#121110]">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left text -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-block text-xs uppercase tracking-widest text-brand-gold font-cividale">Etymology & Founding</div>
+          <h2 class="text-3xl md:text-4xl font-chinese-serif font-bold text-white">
+            從凱撒之城到「弗留利」之源：<br>
+            <span class="gold-gradient-text">Forum Iulii</span>
+          </h2>
+          
+          <div class="space-y-4 text-stone-300 leading-relaxed font-chinese-serif text-base md:text-lg">
+            <p>
+              齊維達在羅馬時代原名為 <strong class="text-white">Forum Iulii</strong>（意即「尤利烏斯・凱撒的市集廣場」）。日後這個名號經歷了千年語音流變，演化為今日義大利東北部大區的名字——<strong class="text-brand-gold">弗留利（Friuli）</strong>。
+            </p>
+            <p>
+              西元 568 年，國王阿爾博因（Alboin）率領日耳曼系倫巴底人跨越阿爾卑斯山進入義大利半島。齊維達成為倫巴底人奪下的第一座重要要塞，阿爾博因隨即在此任命其姪子吉蘇爾夫（Gisulf I）為公爵，宣告成立了<strong class="text-white">倫巴底人在義大利的第一個公國（Ducato del Friuli）</strong>。
+            </p>
+            <p>
+              這裡不僅是守衛義大利東北門戶的軍事重鎮，更在 8 世紀成為阿奎萊亞宗主教（Patriarch of Aquileia）的駐錫地，造就了權力、信仰與古羅馬-拜占庭文化高度薈萃的黃金時代。
+            </p>
+          </div>
+
+          <!-- Quick facts grid -->
+          <div class="grid grid-cols-3 gap-4 pt-4 border-t border-white/10">
+            <div class="p-4 rounded-xl bg-brand-darkcard gold-border">
+              <div class="font-cividale text-2xl font-bold text-brand-gold">50 BC</div>
+              <div class="text-xs text-stone-400 mt-1">凱撒建立羅馬城鎮</div>
+            </div>
+            <div class="p-4 rounded-xl bg-brand-darkcard gold-border">
+              <div class="font-cividale text-2xl font-bold text-brand-gold">568 AD</div>
+              <div class="text-xs text-stone-400 mt-1">倫巴底首座公國建立</div>
+            </div>
+            <div class="p-4 rounded-xl bg-brand-darkcard gold-border">
+              <div class="font-cividale text-2xl font-bold text-brand-gold">2011</div>
+              <div class="text-xs text-stone-400 mt-1">列入 UNESCO 世界遺產</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right image card -->
+        <div class="lg:col-span-5">
+          <div class="relative rounded-2xl overflow-hidden gold-border shadow-2xl group">
+            <img src="images/tempietto_exterior.jpg" alt="齊維達小聖殿外觀與納蒂索內河谷景致" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-stone-200">
+              <p class="font-cividale text-sm text-brand-gold">Tempietto Longobardo & Natisone</p>
+              <p class="text-xs text-stone-400 mt-1">懸崖之上的聖殿，俯瞰清澈的納蒂索內河峽谷</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Tempietto Longobardo -->
+  <section id="tempietto" class="py-24 px-6 relative bg-[#0E0D0C]">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-block text-xs uppercase tracking-widest text-brand-gold font-cividale mb-3">Architectural Masterpiece</div>
+        <h2 class="text-3xl md:text-5xl font-chinese-serif font-bold text-white mb-6">
+          倫巴底小聖殿<br>
+          <span class="gold-gradient-text font-cividale">Tempietto Longobardo</span>
+        </h2>
+        <p class="text-stone-300 font-chinese-serif text-base md:text-lg leading-relaxed">
+          坐落於聖瑪利亞谷（Monastero di Santa Maria in Valle）內，這座建於八世紀中葉的禮拜堂，被公認為歐洲早期中世紀最神秘且傑出的建築藝術奇蹟之一。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- Visual: Interior View -->
+        <div class="lg:col-span-6 space-y-4">
+          <div class="relative rounded-2xl overflow-hidden gold-border shadow-2xl group">
+            <img src="images/tempietto_interior.jpg" alt="倫巴底小聖殿內部" class="w-full h-[520px] object-cover object-top transform group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <span class="px-3 py-1 rounded bg-brand-gold/20 text-brand-gold text-xs border border-brand-gold/40">內部拱頂與木雕座席</span>
+              <p class="text-stone-300 text-sm mt-2 font-chinese-serif">高聳的十字拱頂、中世紀壁畫痕跡，與14世紀精緻的哥德式雕花唱詩班木椅並存。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details list -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="p-6 rounded-2xl bg-brand-darkcard gold-border gold-border-glow transition-all">
+            <h3 class="font-chinese-serif text-xl font-bold text-brand-gold mb-2">1. 蠻族與古羅馬文藝復興的交匯</h3>
+            <p class="text-stone-300 text-sm md:text-base leading-relaxed font-chinese-serif">
+              倫巴底統治階層在此時期展現出強烈的文化整合野心。小聖殿融合了古典晚期的柱頭、拜占庭式的透光迴紋、以及日耳曼貴族對極致灰泥工藝的追求，是「倫巴底文藝復興（Rinascenza liutprandea）」的巔峰象徵。
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-darkcard gold-border gold-border-glow transition-all">
+            <h3 class="font-chinese-serif text-xl font-bold text-brand-gold mb-2">2. 葡萄藤蔓與幾何雕飾拱門</h3>
+            <p class="text-stone-300 text-sm md:text-base leading-relaxed font-chinese-serif">
+              拱門飾帶以繁複的葡萄葉、藤蔓與串珠滾邊雕琢，中央鑲嵌著玻璃與彩色石飾。這種源自古典地中海的基督教聖體寓意圖騰，在蠻族雕工的手中展現了格外生動深邃的立體層次。
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-darkcard gold-border gold-border-glow transition-all">
+            <h3 class="font-chinese-serif text-xl font-bold text-brand-gold mb-2">3. 懸崖修道院的庇護</h3>
+            <p class="text-stone-300 text-sm md:text-base leading-relaxed font-chinese-serif">
+              因後來被納入嚴格隱修的本篤會女修道院（Santa Maria in Valle），這座小聖殿數百年來未受戰火洗劫，奇蹟般地在孤立閉鎖中完整封存了1200年前的原始灰泥與神聖氣場。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Focus on the 6 Stucco Saints (Core highlight) -->
+  <section id="stucco-saints" class="py-24 px-6 relative bg-[#151311] border-t border-b border-white/5">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Visual on Left -->
+        <div class="lg:col-span-6 order-2 lg:order-1">
+          <div class="relative rounded-2xl overflow-hidden gold-border shadow-2xl">
+            <img src="images/tempietto_stucco_saints.jpg" alt="小聖殿西牆六尊灰泥聖女浮雕" class="w-full h-auto object-cover filter contrast-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <span class="text-xs uppercase tracking-widest text-brand-gold font-cividale">West Wall Masterpiece</span>
+              <h4 class="text-lg font-bold text-white font-chinese-serif">西牆灰泥聖女與殉道者像（Le Sante in Stucco）</h4>
+              <p class="text-xs text-stone-300 mt-1 font-chinese-serif">高逾兩米、歷經十二個世紀依然靜穆屹立的灰泥雕塑群。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Narrative on Right -->
+        <div class="lg:col-span-6 order-1 lg:order-2 space-y-6">
+          <div class="inline-block text-xs uppercase tracking-widest text-brand-gold font-cividale">The Spiritual Breakthrough</div>
+          <h2 class="text-3xl md:text-4xl font-chinese-serif font-bold text-white leading-tight">
+            全歐罕見的倖存傑作：<br>
+            <span class="gold-gradient-text">六尊灰泥聖女浮雕</span>
+          </h2>
+
+          <div class="space-y-4 text-stone-300 font-chinese-serif leading-relaxed text-base md:text-lg">
+            <blockquote class="p-4 border-l-2 border-brand-gold bg-brand-gold/5 rounded-r-xl italic text-stone-200">
+              「風格混雜著拜占庭的莊嚴肅穆與日耳曼的質樸粗獷——這正是『蠻族』剛剛學會用羅馬古典語彙表達永恆信仰的珍貴瞬間。」
+            </blockquote>
+            
+            <p>
+              在西牆上方，六位高挑優雅的聖女（殉道修女）分列兩側，宛如在天國門階佇立守候。她們身著垂墜繁複的古典羅馬式長袍（Stola），手持十字架與殉道者的冠冕。
+            </p>
+
+            <ul class="space-y-3 text-sm md:text-base text-stone-300">
+              <li class="flex items-start space-x-3">
+                <span class="text-brand-gold text-lg mt-0.5">✦</span>
+                <span><strong>面部神態：</strong> 兼具東方拜占庭聖像畫特有的橢圓長臉與深邃沉靜，卻帶有北歐民族深思冥想的堅毅骨骼輪廓。</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-brand-gold text-lg mt-0.5">✦</span>
+                <span><strong>材質奇蹟：</strong> 採用灰泥（Stucco）而非大理石，技藝極其精湛，衣褶線條俐落垂暢，是整個歐洲黑暗時代絕無僅有的大型立體雕塑奇蹟。</span>
+              </li>
+              <li class="flex items-start space-x-3">
+                <span class="text-brand-gold text-lg mt-0.5">✦</span>
+                <span><strong>歷史價值：</strong> 當歐洲其他地區的雕塑藝術尚處於停滯時，齊維達的工匠已成功重構了古典主義的尊榮與精神昇華。</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Altar of Ratchis & Christian Heritage -->
+  <section id="artifacts" class="py-24 px-6 relative bg-[#0E0D0C]">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-block text-xs uppercase tracking-widest text-brand-gold font-cividale">Lombard Sculpture Gem</div>
+          <h2 class="text-3xl md:text-4xl font-chinese-serif font-bold text-white">
+            拉奇斯公爵祭壇<br>
+            <span class="gold-gradient-text font-cividale">Altare del Duca Ratchis</span>
+          </h2>
+
+          <div class="space-y-4 text-stone-300 font-chinese-serif text-base md:text-lg leading-relaxed">
+            <p>
+              收藏於主教堂基督教博物館（Museo Cristiano）內的<strong class="text-white">拉奇斯祭壇（737–744 AD）</strong>，由後來的倫巴底國王拉奇斯（Ratchis）為紀念其父公爵佩莫（Pemmo）所下令雕刻。
+            </p>
+            <p>
+              四面石板以白雲石灰岩浮雕呈現「基督威嚴現身（Maiestas Domini）」、「三博士朝聖」與「聖母探訪」。雕塑風格打破古典比例，將人物的手掌、雙翼刻意放大，充滿原始日耳曼金屬細工裝飾紋理與超現實張力。
+            </p>
+            <div class="p-4 rounded-xl bg-brand-darkcard gold-border text-sm">
+              <span class="text-brand-gold font-bold">歷史銘文：</span> 頂部邊緣刻有清晰的拉丁文發願銘文，直接印證了倫巴底貴族虔敬轉皈天主教的歷史轉折。
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="relative rounded-2xl overflow-hidden gold-border shadow-2xl group">
+            <img src="images/altare_ratchis.jpg" alt="拉奇斯公爵祭壇浮雕" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <p class="text-white font-chinese-serif font-bold text-base">基督榮耀像與四天使（Maiestas Domini）</p>
+              <p class="text-xs text-stone-300 mt-1">日耳曼符號幾何感與基督教神學想像的獨特融匯</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Ponte del Diavolo & City Views -->
+  <section id="devil-bridge" class="py-24 px-6 relative bg-[#141211] border-t border-white/5">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-block text-xs uppercase tracking-widest text-brand-gold font-cividale mb-3">Scenic Landmark</div>
+        <h2 class="text-3xl md:text-5xl font-chinese-serif font-bold text-white mb-6">
+          魔鬼橋與納蒂索內翡翠河谷<br>
+          <span class="gold-gradient-text font-cividale">Ponte del Diavolo</span>
+        </h2>
+        <p class="text-stone-300 font-chinese-serif text-base md:text-lg leading-relaxed">
+          飛跨於翡翠綠色納蒂索內河（Natisone）深邃岩壁之上的十五世紀石橋，是齊維達最具象徵意義的城市地標與名片。
+        </p>
+      </div>
+
+      <!-- Image display showcase -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <div class="rounded-2xl overflow-hidden gold-border glass-dark p-4 flex flex-col">
+          <div class="rounded-xl overflow-hidden h-72 mb-4">
+            <img src="images/ponte_del_diavolo.jpg" alt="Ponte del Diavolo 壯麗拱橋" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+          <h3 class="font-chinese-serif text-xl font-bold text-white mb-2">傳奇魔鬼橋的故事</h3>
+          <p class="text-stone-300 text-sm font-chinese-serif leading-relaxed flex-grow">
+            民間相傳，因峽谷水流湍急險阻，村民與魔鬼立約建橋，代價是魔鬼將收取第一個渡橋者的靈魂。機智的村民在橋成後驅趕了一隻小狗過橋，智取了魔鬼。如今，它連接著石板老街與兩岸如畫風光。
+          </p>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden gold-border glass-dark p-4 flex flex-col">
+          <div class="rounded-xl overflow-hidden h-72 mb-4">
+            <img src="images/tempietto_portal.jpg" alt="Tempietto Longobardo Portal" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+          <h3 class="font-chinese-serif text-xl font-bold text-white mb-2">小聖殿羅馬式玄關與壁畫</h3>
+          <p class="text-stone-300 text-sm font-chinese-serif leading-relaxed flex-grow">
+            步入聖殿前的石柱門廊，保留了中世紀早期珍稀的濕壁畫痕跡與幾何滾邊。光線透過高窗篩灑在灰泥聖像與磨損的古地磚上，時光彷彿凝結於西元八世紀。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: UNESCO Series & Cultural Value -->
+  <section id="unesco" class="py-24 px-6 relative bg-gradient-to-b from-[#0E0D0C] to-[#181512] border-t border-brand-gold/20">
+    <div class="max-w-5xl mx-auto text-center">
+      <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-gold/10 border border-brand-gold text-brand-gold mb-6">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21a9 9 0 100-18 9 9 0 000 18z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.6 9h16.8M3.6 15h16.8"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.5 3a17 17 0 000 18M12.5 3a17 17 0 010 18"></path>
+        </svg>
+      </div>
+
+      <div class="inline-block text-xs uppercase tracking-widest text-brand-gold font-cividale mb-3">UNESCO World Heritage Inscription</div>
+      <h2 class="text-3xl md:text-5xl font-chinese-serif font-bold text-white mb-6">
+        倫巴底人在義大利：權力的場所<br>
+        <span class="gold-gradient-text text-2xl md:text-3xl">Longobards in Italy: Places of the Power (568-774 A.D.)</span>
+      </h2>
+
+      <p class="text-stone-300 font-chinese-serif text-base md:text-lg leading-relaxed max-w-3xl mx-auto mb-12">
+        2011年，UNESCO將包括齊維達（蓋斯塔爾德城堡區與主教宮建築群）在內的七處義大利代表性遺址列入世界遺產。倫巴底人不再被簡單視為摧毀羅馬帝國的野蠻異族，而是被正名為在古典羅馬文明崩解後，串聯古代歐洲與中世紀基督教世界的偉大文化綜合者。
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+        <div class="p-6 rounded-2xl glass-dark gold-border">
+          <h4 class="font-cividale text-brand-gold text-lg font-bold mb-2">文化融會</h4>
+          <p class="text-stone-400 text-sm font-chinese-serif leading-relaxed">融合北日耳曼民俗傳統、拜占庭宮廷美學與晚期羅馬基督教文化，奠定歐洲中世紀文明基石。</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-dark gold-border">
+          <h4 class="font-cividale text-brand-gold text-lg font-bold mb-2">工藝巔峰</h4>
+          <p class="text-stone-400 text-sm font-chinese-serif leading-relaxed">小聖殿灰泥雕刻與金工飾物，代表了黑暗時代歐洲最卓越、最獨樹一幟的藝術成就。</p>
+        </div>
+        <div class="p-6 rounded-2xl glass-dark gold-border">
+          <h4 class="font-cividale text-brand-gold text-lg font-bold mb-2">歷史起點</h4>
+          <p class="text-stone-400 text-sm font-chinese-serif leading-relaxed">568年倫巴底王朝入主義大利的起始首站，更為今日「弗留利 Friuli」留下了千古地名傳承。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-white/10 bg-[#0A0908] text-center text-stone-500 text-sm">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-left">
+        <p class="font-cividale text-white font-bold tracking-wider">CIVIDALE DEL FRIULI 策展導覽</p>
+        <p class="text-xs text-stone-400 mt-1 font-chinese-serif">極東義大利・倫巴底文明世界遺產巡禮</p>
+      </div>
+      <div class="text-xs text-stone-500 font-chinese-serif">
+        歷史圖象檔案來源：Wikimedia Commons (CC BY-SA) & Cividale 官方歷史檔案
+      </div>
+      <a href="#" class="text-xs text-brand-gold hover:underline font-cividale">回到頂端 ↑</a>
+    </div>
+  </footer>
+
+</body>
+</html>
