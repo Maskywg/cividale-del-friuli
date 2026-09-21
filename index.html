@@ -1069,10 +1069,10 @@
       // Initial active layer
       switchMapView('invasion');
 
-      // Guarantee proper sizing when rendered
-      setTimeout(() => {
-        map.invalidateSize();
-      }, 300);
+      // Guarantee proper sizing when rendered across different browsers and local file://
+      setTimeout(() => { if (map) map.invalidateSize(); }, 100);
+      setTimeout(() => { if (map) map.invalidateSize(); }, 400);
+      setTimeout(() => { if (map) map.invalidateSize(); }, 1000);
     }
 
     function switchMapView(mode) {
@@ -1118,12 +1118,16 @@
         resetCityView();
       }
 
-      map.invalidateSize();
+      setTimeout(() => { if (map) map.invalidateSize(); }, 50);
     }
 
     function resetInvasionView() {
       if (!map || !invasionPolyline) return;
-      map.fitBounds(invasionPolyline.getBounds(), { padding: [50, 50] });
+      try {
+        map.fitBounds(invasionPolyline.getBounds(), { padding: [50, 50] });
+      } catch (e) {
+        map.setView([46.4, 13.5], 7);
+      }
     }
 
     function resetImpactView() {
@@ -1169,6 +1173,10 @@
     }
     window.addEventListener('load', () => {
       initMap();
+      if (map) map.invalidateSize();
+    });
+    // Extra safety trigger for tab switches or delayed styles
+    window.addEventListener('resize', () => {
       if (map) map.invalidateSize();
     });
   </script>
