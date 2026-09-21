@@ -955,7 +955,7 @@
       { id: 'imp_monza', name: '蒙札・宗教皈依與鐵冠', lat: 45.5845, lng: 9.2744, desc: '<strong>特奧多琳達王后與天主教化</strong><br>推動全體倫巴底人皈依天主教，消弭蠻族與羅馬藩籬，傳奇「倫巴底鐵冠」保存於此。' },
       { id: 'imp_rome', name: '羅馬・教宗國之誕生', lat: 41.9028, lng: 12.4964, desc: '<strong>地緣政治大翻轉</strong><br>倫巴底擴張迫使教宗斬斷拜占庭轉向法蘭克求援，直接催生「教宗國」與查理曼神聖羅馬加冕。' },
       { id: 'imp_cividale', name: '齊維達・藝術融會破曉', lat: 46.0906, lng: 13.4350, desc: '<strong>倫巴底文藝復興起點</strong><br>建立第一個公國，小聖殿灰泥雕刻為日耳曼美學與羅馬語彙交融的歐洲罕見孤品。' },
-      { id: 'imp_london', name: '倫敦・金融制度傳承', lat: 51.5130, -0.0880, desc: '<strong>近代商業與銀行起源</strong><br>倫巴底商人開拓全歐金融，發明匯票與質押借貸，倫敦核心「倫巴底街」即以此命名。' }
+      { id: 'imp_london', name: '倫敦・金融制度傳承', lat: 51.5130, lng: -0.0880, desc: '<strong>近代商業與銀行起源</strong><br>倫巴底商人開拓全歐金融，發明匯票與質押借貸，倫敦核心「倫巴底街」即以此命名。' }
     ];
 
     // Cividale Urban Monuments
@@ -982,13 +982,17 @@
         scrollWheelZoom: true
       }).setView([46.4, 13.5], 7);
 
-      // Dark Matter Map Tiles with OSM fallback
-      const darkTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://carto.com/">CARTO</a>, &copy; <a href="https://openstreetmap.org">OSM</a>',
-        subdomains: 'abcd',
-        maxZoom: 19
+      // Dark Gray Canvas Map Tiles (no API key required)
+      const darkTiles = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        attribution: '&copy; <a href="https://www.esri.com/">Esri</a>, HERE, Garmin, FAO, NOAA, USGS',
+        maxZoom: 16
       });
       darkTiles.addTo(map);
+
+      const darkLabels = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 16
+      });
+      darkLabels.addTo(map);
 
       // Separate Layer Groups
       invasionLayerGroup = L.layerGroup();
