@@ -72,7 +72,7 @@
       box-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
     }
     .glass-dark {
-      background: rgba(24, 22, 20, 0.82);
+      background: rgba(24, 22, 20, 0.85);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
@@ -133,6 +133,24 @@
       70% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
       100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
     }
+    .custom-impact-pin {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 2px solid #38BDF8;
+      background: rgba(10, 25, 40, 0.95);
+      color: #7DD3FC;
+      font-weight: bold;
+      font-size: 12px;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.7);
+      transition: all 0.3s ease;
+    }
+    .custom-impact-pin:hover {
+      transform: scale(1.2);
+      background: #38BDF8;
+      color: #000;
+    }
 
     /* Custom Scrollbar */
     ::-webkit-scrollbar {
@@ -165,14 +183,17 @@
         </div>
       </a>
 
-      <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wider">
+      <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium tracking-wider">
         <a href="#map-section" class="text-brand-gold hover:text-brand-goldLight transition-colors flex items-center gap-1.5 font-semibold">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
-          蠻族入侵路線地圖
+          蠻族入侵與影響地圖
         </a>
-        <a href="#origin" class="text-stone-300 hover:text-brand-gold transition-colors">起源與由來</a>
-        <a href="#tempietto" class="text-stone-300 hover:text-brand-gold transition-colors">倫巴底小聖殿</a>
-        <a href="#stucco-saints" class="text-stone-300 hover:text-brand-gold transition-colors">六尊聖女浮雕</a>
+        <a href="#european-legacy" class="text-sky-300 hover:text-white transition-colors flex items-center gap-1 font-semibold">
+          💡 為何重塑歐洲？
+        </a>
+        <a href="#origin" class="text-stone-300 hover:text-brand-gold transition-colors">起源由來</a>
+        <a href="#tempietto" class="text-stone-300 hover:text-brand-gold transition-colors">小聖殿</a>
+        <a href="#stucco-saints" class="text-stone-300 hover:text-brand-gold transition-colors">六尊聖女</a>
         <a href="#artifacts" class="text-stone-300 hover:text-brand-gold transition-colors">拉奇斯祭壇</a>
         <a href="#devil-bridge" class="text-stone-300 hover:text-brand-gold transition-colors">魔鬼橋</a>
         <a href="#unesco" class="px-4 py-2 rounded-full border border-brand-gold/50 text-brand-gold hover:bg-brand-gold hover:text-black transition-all font-cividale text-xs">
@@ -181,7 +202,7 @@
       </nav>
       
       <!-- Mobile menu button -->
-      <a href="#map-section" class="md:hidden text-xs px-3 py-1.5 rounded border border-brand-gold text-brand-gold">歷史地圖</a>
+      <a href="#european-legacy" class="lg:hidden text-xs px-3 py-1.5 rounded border border-brand-gold text-brand-gold">文化解讀</a>
     </div>
   </header>
 
@@ -218,18 +239,21 @@
 
       <!-- Quick Action Buttons -->
       <div class="flex flex-wrap items-center justify-center gap-4">
+        <a href="#european-legacy" class="px-8 py-4 rounded-xl bg-gradient-to-r from-sky-600 via-blue-700 to-indigo-800 text-white font-semibold text-sm tracking-wider uppercase transition-all transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-sky-500/30 flex items-center gap-2">
+          <span>💡 為什麼蠻族重塑了歐洲？</span>
+        </a>
         <a href="#map-section" class="px-8 py-4 rounded-xl bg-gradient-to-r from-red-700 via-brand-wine to-brand-goldDark text-white font-semibold text-sm tracking-wider uppercase transition-all transform hover:-translate-y-0.5 hover:shadow-lg hover:shadow-red-900/40 flex items-center gap-2">
           <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-          查看齊維達地圖與入侵路線
+          查看互動地圖
         </a>
         <a href="#tempietto" class="px-8 py-4 rounded-xl glass-dark gold-border text-white hover:text-brand-gold font-medium text-sm tracking-wider uppercase transition-all">
-          探索倫巴底小聖殿
+          探索小聖殿
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Section: Interactive Map & Invasion Route (NEW) -->
+  <!-- Section: Interactive Map & Invasion Route -->
   <section id="map-section" class="py-24 px-6 relative bg-[#11100F] border-t border-b border-brand-gold/30">
     <div class="max-w-7xl mx-auto">
       <div class="text-center max-w-3xl mx-auto mb-14">
@@ -238,10 +262,10 @@
           Geopolitical & Migration Archaeology
         </div>
         <h2 class="text-3xl md:text-5xl font-chinese-serif font-bold text-white mb-4">
-          地理坐標與西元 568 蠻族南遷入寇路線
+          地理坐標・蠻族入寇與深遠歐洲影響地圖
         </h2>
         <p class="text-stone-300 font-chinese-serif text-base md:text-lg leading-relaxed">
-          西元 568 年復活節翌日，倫巴底國王阿爾博因（Alboin）率領數十萬族人離開潘諾尼亞（今匈牙利平原），翻越朱利安阿爾卑斯山的皮爾斯隘口（Birnbaumer Pass），勢如破竹直抵齊維達（Forum Iulii），開啟了改寫義大利歷史的倫巴底王國時代。
+          西元 568 年，倫巴底國王阿爾博因率族人翻越朱利安阿爾卑斯山的皮爾斯隘口，攻克首站齊維達。這場看似野蠻的入侵，其漣漪卻一路擴散至羅馬（催生教宗國）、蒙札（宗教皈依）、以至西歐封建律法與倫敦金融街。
         </p>
       </div>
 
@@ -250,13 +274,16 @@
         
         <!-- Left: Route Info & Interactive Cards (5 cols) -->
         <div class="lg:col-span-5 space-y-4">
-          <!-- View Switcher Tabs -->
-          <div class="p-2 rounded-xl bg-brand-darkcard gold-border flex gap-2">
-            <button id="btn-view-invasion" onclick="switchMapView('invasion')" class="flex-1 py-2.5 px-3 rounded-lg text-xs md:text-sm font-semibold tracking-wider transition-all bg-gradient-to-r from-red-700 to-brand-wine text-white shadow">
-              ⚔️ 568 入侵進軍大進程
+          <!-- View Switcher Tabs (3 Tabs) -->
+          <div class="p-2 rounded-xl bg-brand-darkcard gold-border grid grid-cols-3 gap-1">
+            <button id="btn-view-invasion" onclick="switchMapView('invasion')" class="py-2.5 px-2 rounded-lg text-xs font-semibold tracking-wider transition-all bg-gradient-to-r from-red-700 to-brand-wine text-white shadow text-center">
+              ⚔️ 568 入侵推進
             </button>
-            <button id="btn-view-city" onclick="switchMapView('city')" class="flex-1 py-2.5 px-3 rounded-lg text-xs md:text-sm font-semibold tracking-wider transition-all text-stone-400 hover:text-white hover:bg-white/5">
-              🏛️ 齊維達城內遺址核心
+            <button id="btn-view-impact" onclick="switchMapView('impact')" class="py-2.5 px-2 rounded-lg text-xs font-semibold tracking-wider transition-all text-stone-400 hover:text-white hover:bg-white/5 text-center">
+              🌍 歐洲歷史轉折點
+            </button>
+            <button id="btn-view-city" onclick="switchMapView('city')" class="py-2.5 px-2 rounded-lg text-xs font-semibold tracking-wider transition-all text-stone-400 hover:text-white hover:bg-white/5 text-center">
+              🏛️ 齊維達城內
             </button>
           </div>
 
@@ -268,7 +295,7 @@
                 <span class="text-stone-500">568 AD 春</span>
               </div>
               <h4 class="font-chinese-serif font-bold text-white text-base group-hover:text-brand-gold transition-colors">潘諾尼亞草原（Pannonia, 匈牙利多瑙河畔）</h4>
-              <p class="text-stone-400 text-xs mt-1 font-chinese-serif">因阿瓦爾人（Avars）步步進逼，國王阿爾博因集結倫巴底全體部落（約15-20萬人含薩克森等各族僕從），焚燒原有家園，展開破釜沉舟的民族南遷。</p>
+              <p class="text-stone-400 text-xs mt-1 font-chinese-serif">因阿瓦爾人步步進逼，國王阿爾博因集結全體倫巴底部落（約15-20萬人含薩克森等各族聯軍），焚燒原有家園，展開破釜沉舟的民族南遷。</p>
             </div>
 
             <div onclick="focusCoord(45.922, 14.08, 9, 'p2')" class="cursor-pointer p-4 rounded-xl bg-brand-darkcard gold-border hover:border-brand-gold transition-all group">
@@ -277,7 +304,7 @@
                 <span class="text-stone-500">翻越阿爾卑斯山</span>
               </div>
               <h4 class="font-chinese-serif font-bold text-white text-base group-hover:text-brand-gold transition-colors">皮爾斯隘口（Birnbaumer Pass / Ad Pirum）</h4>
-              <p class="text-stone-400 text-xs mt-1 font-chinese-serif">朱利安阿爾卑斯山（Julian Alps）的關鍵古道（今斯洛維尼亞境內）。倫巴底人沿著古羅馬雙子之路（Via Gemina）隘口越過山脊，羅馬邊防空虛無法阻擋蠻族狂潮。</p>
+              <p class="text-stone-400 text-xs mt-1 font-chinese-serif">朱利安阿爾卑斯山古道（今斯洛維尼亞境內）。倫巴底人沿古羅馬雙子之路隘口越過山脊，羅馬邊防空虛無法阻擋蠻族狂潮。</p>
             </div>
 
             <div onclick="focusCoord(46.0906, 13.4350, 14, 'p3')" class="cursor-pointer p-4 rounded-xl bg-brand-darkcard border border-brand-gold bg-brand-gold/5 transition-all group">
@@ -299,7 +326,46 @@
             </div>
           </div>
 
-          <!-- City Points Cards (Initially hidden or alternate) -->
+          <!-- Impact Mode Cards (NEW) -->
+          <div id="panel-impact" class="space-y-3 hidden">
+            <div onclick="focusCoord(45.1847, 9.1582, 9, 'imp_pavia')" class="cursor-pointer p-4 rounded-xl bg-brand-darkcard border border-sky-500/50 hover:border-sky-400 transition-all group">
+              <div class="flex items-center justify-between text-xs text-sky-400 font-cividale mb-1">
+                <span>成文法典先驅</span>
+                <span class="text-stone-400">643 AD</span>
+              </div>
+              <h4 class="font-chinese-serif font-bold text-white text-base group-hover:text-sky-300 transition-colors">帕維亞：羅塔里法典（Edictum Rothari）</h4>
+              <p class="text-stone-400 text-xs mt-1 font-chinese-serif">國王羅塔里用拉丁文頒布388條成文法典，創立「賠償金（Wergild）」取代野蠻血親復仇，奠定歐洲封建法基礎。</p>
+            </div>
+
+            <div onclick="focusCoord(41.9028, 12.4964, 8, 'imp_rome')" class="cursor-pointer p-4 rounded-xl bg-brand-darkcard border border-sky-500/50 hover:border-sky-400 transition-all group">
+              <div class="flex items-center justify-between text-xs text-sky-400 font-cividale mb-1">
+                <span>地緣政治巨變</span>
+                <span class="text-stone-400">754-800 AD</span>
+              </div>
+              <h4 class="font-chinese-serif font-bold text-white text-base group-hover:text-sky-300 transition-colors">羅馬：逼使教宗轉向法蘭克・催生教宗國</h4>
+              <p class="text-stone-400 text-xs mt-1 font-chinese-serif">倫巴底人切斷拜占庭控制，羅馬教宗只得翻越阿爾卑斯山向法蘭克求援，引發「丕平獻土」並最終迎來查理曼帝國加冕。</p>
+            </div>
+
+            <div onclick="focusCoord(45.5845, 9.2744, 10, 'imp_monza')" class="cursor-pointer p-4 rounded-xl bg-brand-darkcard border border-sky-500/50 hover:border-sky-400 transition-all group">
+              <div class="flex items-center justify-between text-xs text-sky-400 font-cividale mb-1">
+                <span>天主教文化大統一</span>
+                <span class="text-stone-400">蒙札珍寶</span>
+              </div>
+              <h4 class="font-chinese-serif font-bold text-white text-base group-hover:text-sky-300 transition-colors">蒙札：特奧多琳達王后與鐵冠（Monza）</h4>
+              <p class="text-stone-400 text-xs mt-1 font-chinese-serif">推動全體倫巴底人放棄阿里烏異端全面皈依天主教，消弭族群隔閡，確立整個日耳曼西歐歸於天主教的精神共同體。</p>
+            </div>
+
+            <div onclick="focusCoord(51.5130, -0.0880, 9, 'imp_london')" class="cursor-pointer p-4 rounded-xl bg-brand-darkcard border border-sky-500/50 hover:border-sky-400 transition-all group">
+              <div class="flex items-center justify-between text-xs text-sky-400 font-cividale mb-1">
+                <span>現代金融起源</span>
+                <span class="text-stone-400">13-14 世紀商業革命</span>
+              </div>
+              <h4 class="font-chinese-serif font-bold text-white text-base group-hover:text-sky-300 transition-colors">倫敦與全歐：倫巴底街與典當金融</h4>
+              <p class="text-stone-400 text-xs mt-1 font-chinese-serif">倫巴底商人發明匯票、複式記帳與質押借貸，倫敦金融城著名「倫巴底街（Lombard Street）」即以此命名，成為近代銀行代名詞。</p>
+            </div>
+          </div>
+
+          <!-- City Points Cards -->
           <div id="panel-city" class="space-y-3 hidden">
             <div onclick="focusCoord(46.0931, 13.4331, 17, 'c1')" class="cursor-pointer p-4 rounded-xl bg-brand-darkcard gold-border hover:border-brand-gold transition-all group">
               <div class="flex items-center justify-between text-xs text-brand-gold font-cividale mb-1">
@@ -342,11 +408,10 @@
         <!-- Right: Interactive Leaflet Map Box (7 cols) -->
         <div class="lg:col-span-7">
           <div class="relative rounded-2xl overflow-hidden gold-border shadow-2xl bg-brand-darkcard">
-            <!-- Map container with fixed responsive height -->
-            <div id="interactive-map" class="w-full h-[580px] z-10"></div>
+            <div id="interactive-map" class="w-full h-[600px] z-10"></div>
 
             <!-- Floating Map Legend Overlay -->
-            <div class="absolute bottom-4 right-4 z-20 glass-dark gold-border p-3.5 rounded-xl text-xs space-y-2 pointer-events-auto max-w-[260px]">
+            <div class="absolute bottom-4 right-4 z-20 glass-dark gold-border p-3.5 rounded-xl text-xs space-y-2 pointer-events-auto max-w-[270px]">
               <div class="font-cividale text-brand-gold font-bold flex items-center gap-1.5 border-b border-white/10 pb-1">
                 <span>MAP LEGEND</span>
               </div>
@@ -356,7 +421,11 @@
               </div>
               <div class="flex items-center gap-2 text-stone-300">
                 <span class="w-5 h-1 bg-red-500 inline-block border-t border-dashed border-white"></span>
-                <span>阿爾博因大遷徙南下路線</span>
+                <span>阿爾博因南遷行軍路線</span>
+              </div>
+              <div class="flex items-center gap-2 text-stone-300">
+                <span class="w-3 h-3 rounded-full bg-sky-400 border border-black shadow-[0_0_8px_rgba(56,189,248,0.8)]"></span>
+                <span>歐洲深遠影響轉折地</span>
               </div>
               <div class="flex items-center gap-2 text-stone-300">
                 <span class="w-3 h-3 rounded-full bg-brand-gold border border-black shadow-[0_0_8px_rgba(212,175,55,0.8)]"></span>
@@ -365,17 +434,185 @@
             </div>
 
             <!-- Map View Mode Controls -->
-            <div class="absolute top-4 right-4 z-20 flex gap-2">
-              <button onclick="resetInvasionView()" class="px-3 py-1.5 rounded-lg glass-dark gold-border text-xs text-brand-gold hover:bg-brand-gold hover:text-black transition-all shadow">
-                重置大進程視野
+            <div class="absolute top-4 right-4 z-20 flex flex-wrap gap-2">
+              <button onclick="switchMapView('invasion')" class="px-3 py-1.5 rounded-lg glass-dark gold-border text-xs text-red-400 hover:bg-red-700 hover:text-white transition-all shadow">
+                ⚔️ 568進軍
               </button>
-              <button onclick="resetCityView()" class="px-3 py-1.5 rounded-lg glass-dark gold-border text-xs text-white hover:bg-brand-gold hover:text-black transition-all shadow">
-                特寫齊維達城
+              <button onclick="switchMapView('impact')" class="px-3 py-1.5 rounded-lg glass-dark border border-sky-400/50 text-xs text-sky-300 hover:bg-sky-600 hover:text-white transition-all shadow">
+                🌍 歐洲影響
+              </button>
+              <button onclick="switchMapView('city')" class="px-3 py-1.5 rounded-lg glass-dark gold-border text-xs text-brand-gold hover:bg-brand-gold hover:text-black transition-all shadow">
+                🏛️ 齊維達城
               </button>
             </div>
           </div>
           <p class="text-xs text-stone-500 mt-2 text-right font-cividale">Base Map: OpenStreetMap & CartoDB Dark Matter / Coordinates: 46.0906° N, 13.4350° E</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section: Why Lombards Reshaped European Culture (NEW CORE SECTION) -->
+  <section id="european-legacy" class="py-24 px-6 relative bg-gradient-to-b from-[#0F0E0D] via-[#161412] to-[#0E0D0C] border-b border-white/5">
+    <div class="max-w-6xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/60 border border-sky-500/40 text-sky-300 text-xs font-semibold uppercase tracking-widest mb-4">
+          <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+          Civilizational Paradigm Shift
+        </div>
+        <h2 class="text-3xl md:text-5xl font-chinese-serif font-bold text-white mb-6 leading-tight">
+          倫巴底人不是「日耳曼蠻族」嗎？<br>
+          <span class="gold-gradient-text">為何他們深刻重塑了未來的歐洲文化？</span>
+        </h2>
+        <p class="text-stone-300 font-chinese-serif text-base md:text-lg leading-relaxed">
+          過去古典羅馬史觀常將倫巴底人視為野蠻破壞者；但近代中世紀史學與 UNESCO 考古研究早已翻轉此論：<strong>倫巴底人不是文明的終結者，而是催生近代歐洲有機體的「關鍵催化劑與鏈結者」</strong>。
+        </p>
+      </div>
+
+      <!-- 5 Major Dimensions Cards -->
+      <div class="space-y-12">
+        
+        <!-- Pillar 1: Law & Order -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 rounded-3xl bg-brand-darkcard gold-border gold-border-glow transition-all">
+          <div class="lg:col-span-5 rounded-2xl overflow-hidden border border-white/10 shadow-xl max-h-[360px]">
+            <img src="images/edictum_rothari.jpg" alt="羅塔里法典手抄本（Edictum Rothari）" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-brand-gold/20 border border-brand-gold text-brand-gold font-cividale font-bold flex items-center justify-center text-sm">01</span>
+              <span class="text-xs uppercase tracking-widest text-brand-gold font-cividale">Rule of Law & Social Order</span>
+            </div>
+            <h3 class="text-2xl font-chinese-serif font-bold text-white">
+              填補權力真空：成文法典先驅《羅塔里法典》
+            </h3>
+            <p class="text-stone-300 font-chinese-serif leading-relaxed text-sm md:text-base">
+              日耳曼傳統習慣「血親復仇（Blood Feud）」，部族冤冤相報。然而西元 643 年，倫巴底國王羅塔里在帕維亞用<strong>拉丁文</strong>頒布了劃時代的<strong class="text-white">《羅塔里法典》（Edictum Rothari）</strong>：
+            </p>
+            <ul class="space-y-2 text-stone-300 text-sm font-chinese-serif">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-gold mt-1">✦</span>
+                <span><strong>贖罪賠償金制度（Wergild）：</strong> 針對身體傷害與社會等級訂立嚴格賠償金，以法律賠償取代流血仇殺，終止無休止的部族戰火。</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-gold mt-1">✦</span>
+                <span><strong>日耳曼意志與羅馬秩序結合：</strong> 將日耳曼人的個人自由與羅馬成文法的理性框架熔於一爐，成為神聖羅馬帝國封建法與近代歐陸民法的先聲。</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pillar 2: Geopolitics & Papal State -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 rounded-3xl bg-brand-darkcard gold-border gold-border-glow transition-all">
+          <div class="lg:col-span-7 space-y-4 order-2 lg:order-1">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-brand-gold/20 border border-brand-gold text-brand-gold font-cividale font-bold flex items-center justify-center text-sm">02</span>
+              <span class="text-xs uppercase tracking-widest text-brand-gold font-cividale">Geopolitical Architecture</span>
+            </div>
+            <h3 class="text-2xl font-chinese-serif font-bold text-white">
+              地緣版圖重塑：催生「教宗國」與中世紀歐洲秩序
+            </h3>
+            <p class="text-stone-300 font-chinese-serif leading-relaxed text-sm md:text-base">
+              六世紀前，義大利名義上隸屬遠在君士坦丁堡的東羅馬（拜占庭）帝國。倫巴底鐵騎橫掃波河平原後，徹底斬斷了東羅馬的控制：
+            </p>
+            <ul class="space-y-2 text-stone-300 text-sm font-chinese-serif">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-gold mt-1">✦</span>
+                <span><strong>逼使教宗西顧：</strong> 面對倫巴底國王的緊逼，孤立無援的羅馬教宗無法再仰賴拜占庭，只得翻越阿爾卑斯山向法蘭克人（查理曼家族）求援。</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-gold mt-1">✦</span>
+                <span><strong>奠定「教宗國」與查理曼加冕：</strong> 法蘭克國王丕平擊敗倫巴底軍隊後獻地於教宗（丕平獻土），西元 800 年查理曼更在羅馬加冕。「西歐天主教核心 + 日耳曼封建王權」的經典歐洲架構，正是被倫巴底人的軍事擴張直接逼迫成型的。</span>
+              </li>
+            </ul>
+          </div>
+          <div class="lg:col-span-5 order-1 lg:order-2 rounded-2xl overflow-hidden border border-white/10 shadow-xl max-h-[360px]">
+            <img src="images/theodelinda_crown.jpg" alt="倫巴底鐵冠與王權象徵" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+        </div>
+
+        <!-- Pillar 3: Religious Integration -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 rounded-3xl bg-brand-darkcard gold-border gold-border-glow transition-all">
+          <div class="lg:col-span-5 rounded-2xl overflow-hidden border border-white/10 shadow-xl max-h-[360px]">
+            <img src="images/altare_ratchis.jpg" alt="拉奇斯祭壇宗教雕刻" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+          </div>
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-full bg-brand-gold/20 border border-brand-gold text-brand-gold font-cividale font-bold flex items-center justify-center text-sm">03</span>
+              <span class="text-xs uppercase tracking-widest text-brand-gold font-cividale">Religious Unification</span>
+            </div>
+            <h3 class="text-2xl font-chinese-serif font-bold text-white">
+              精神共同體：促成泛歐洲「天主教文化大統一」
+            </h3>
+            <p class="text-stone-300 font-chinese-serif leading-relaxed text-sm md:text-base">
+              倫巴底人初入義大利時信奉「阿里烏異端（Arianism）」或多神教，與羅馬人壁壘分明：
+            </p>
+            <ul class="space-y-2 text-stone-300 text-sm font-chinese-serif">
+              <li class="flex items-start gap-2">
+                <span class="text-brand-gold mt-1">✦</span>
+                <span><strong>王室全面皈依天主教：</strong> 在天主教王后特奧多琳達（Theodelinda）與教宗額我略一世努力下，倫巴底王室正式放棄異端，受洗皈依羅馬公教。</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-brand-gold mt-1">✦</span>
+                <span><strong>消融族群藩籬：</strong> 蠻族征服者與羅馬被統治階層因共同信仰融為一體，確立了西歐世界全面同奉天主教的精神基石。</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Pillar 4 & 5: Art Innovation & Modern Financial Roots -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Pillar 4: Architecture & Art -->
+          <div class="p-8 rounded-3xl bg-brand-darkcard gold-border flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-full bg-brand-gold/20 border border-brand-gold text-brand-gold font-cividale font-bold flex items-center justify-center text-sm">04</span>
+                <span class="text-xs uppercase tracking-widest text-brand-gold font-cividale">Aesthetic Innovation</span>
+              </div>
+              <h3 class="text-2xl font-chinese-serif font-bold text-white">
+                美學革命：孕育全歐「羅曼式建築」
+              </h3>
+              <p class="text-stone-300 font-chinese-serif text-sm leading-relaxed">
+                齊維達小聖殿即是最佳縮影：日耳曼金工的幾何動物線條，融入拜占庭聖像與羅馬灰泥雕塑，孕育出「倫巴底石匠（Comacine Masters）」。他們的拱券技術與裝飾盲拱帶（Lombard bands），成為 10-12 世紀席捲全歐的「羅曼式建築風格（Romanesque）」之母。
+              </p>
+            </div>
+            <div class="mt-6 rounded-xl overflow-hidden h-44">
+              <img src="images/tempietto_stucco_saints.jpg" alt="小聖殿浮雕" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+          <!-- Pillar 5: Banking & Commerce -->
+          <div class="p-8 rounded-3xl bg-brand-darkcard gold-border flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-full bg-brand-gold/20 border border-brand-gold text-brand-gold font-cividale font-bold flex items-center justify-center text-sm">05</span>
+                <span class="text-xs uppercase tracking-widest text-brand-gold font-cividale">Commercial Revolution</span>
+              </div>
+              <h3 class="text-2xl font-chinese-serif font-bold text-white">
+                現代商業基因：倫巴底即「銀行與金融」代名詞
+              </h3>
+              <p class="text-stone-300 font-chinese-serif text-sm leading-relaxed">
+                倫巴底人開闢的城市自治網絡（如米蘭、帕維亞、齊維達）在商業復興中崛起。13-14世紀，走遍歐洲的倫巴底商人開創了早期匯票、海上保險、複式記帳與質押借貸。今日倫敦金融城著名的<strong>「倫巴底街（Lombard Street）」</strong>即以此得名，現代德語的「典當借貸（Lombardkredit）」字根亦直指倫巴底！
+              </p>
+            </div>
+            <div class="mt-6 p-4 rounded-xl bg-black/40 border border-white/10 text-xs font-chinese-serif text-stone-300 flex items-center gap-3">
+              <span class="text-2xl">🏛️</span>
+              <span>「Lombard」從一個阿爾卑斯北方的蠻族稱號，最終蛻變為全球現代金融制度的基石。</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary Quote Banner -->
+        <div class="p-8 rounded-3xl bg-gradient-to-r from-[#201B15] via-[#2D2419] to-[#1C1814] gold-border text-center space-y-4 shadow-2xl">
+          <p class="text-xl md:text-2xl font-chinese-serif text-white font-semibold leading-relaxed">
+            「蠻族不是野蠻的同義詞，而是為古羅馬垂暮軀體注入的強悍生機。<br class="hidden sm:block">
+            當他們在齊維達停下腳步、用雕刀雕刻出第一尊聖女灰泥時，一個融匯了<br class="hidden sm:block">
+            <span class="text-brand-gold">『日耳曼法度自由、羅馬制度理性、基督信仰靈性』</span>的全新有機體——<br class="hidden sm:block">
+            <span class="gold-gradient-text text-2xl md:text-3xl font-cividale font-bold">歐洲（EUROPE）正式破繭誕生。</span>」
+          </p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -677,9 +914,11 @@
   <script>
     let map;
     let invasionLayerGroup;
+    let impactLayerGroup;
     let cityLayerGroup;
     let invasionPolyline;
     let invasionMarkers = {};
+    let impactMarkers = {};
     let cityMarkers = {};
 
     // 568 Invasion Route points
@@ -693,6 +932,15 @@
       { id: 'p4', name: '帕維亞（Pavia）', lat: 45.1847, lng: 9.1582, desc: '<strong>倫巴底王國正式王都</strong><br>經圍城三年於572年攻陷，成為統治全北義的權力中心。', stage: '定都' }
     ];
 
+    // European Legacy & Transformation points (NEW)
+    const impactPoints = [
+      { id: 'imp_pavia', name: '帕維亞・法典中心', lat: 45.1847, lng: 9.1582, desc: '<strong>成文法典先驅</strong><br>西元643年《羅塔里法典》在此頒布，確立「賠償金（Wergild）」制度，奠定歐洲封建法秩序。' },
+      { id: 'imp_monza', name: '蒙札・宗教皈依與鐵冠', lat: 45.5845, lng: 9.2744, desc: '<strong>特奧多琳達王后與天主教化</strong><br>推動全體倫巴底人皈依天主教，消弭蠻族與羅馬藩籬，傳奇「倫巴底鐵冠」保存於此。' },
+      { id: 'imp_rome', name: '羅馬・教宗國之誕生', lat: 41.9028, lng: 12.4964, desc: '<strong>地緣政治大翻轉</strong><br>倫巴底擴張迫使教宗斬斷拜占庭轉向法蘭克求援，直接催生「教宗國」與查理曼神聖羅馬加冕。' },
+      { id: 'imp_cividale', name: '齊維達・藝術融會破曉', lat: 46.0906, lng: 13.4350, desc: '<strong>倫巴底文藝復興起點</strong><br>建立第一個公國，小聖殿灰泥雕刻為日耳曼美學與羅馬語彙交融的歐洲罕見孤品。' },
+      { id: 'imp_london', name: '倫敦・金融制度傳承', lat: 51.5130, -0.0880, desc: '<strong>近代商業與銀行起源</strong><br>倫巴底商人開拓全歐金融，發明匯票與質押借貸，倫敦核心「倫巴底街」即以此命名。' }
+    ];
+
     // Cividale Urban Monuments
     const cityPoints = [
       { id: 'c1', name: '倫巴底小聖殿（Tempietto Longobardo）', lat: 46.0931, lng: 13.4331, desc: '<strong>UNESCO 核心建築</strong><br>存有全歐僅存最珍貴的八世紀灰泥聖女像與拜占庭幾何拱門。' },
@@ -702,7 +950,6 @@
     ];
 
     function initMap() {
-      // Initialize map centered between Pannonia and Northern Italy
       map = L.map('interactive-map', {
         zoomControl: true,
         scrollWheelZoom: true
@@ -716,12 +963,11 @@
       }).addTo(map);
 
       invasionLayerGroup = L.layerGroup().addTo(map);
+      impactLayerGroup = L.layerGroup().addTo(map);
       cityLayerGroup = L.layerGroup().addTo(map);
 
       // 1. Draw Invasion Route
       const routeCoords = invasionPoints.map(p => [p.lat, p.lng]);
-      
-      // Invasion line (animated style with red glow)
       invasionPolyline = L.polyline(routeCoords, {
         color: '#EF4444',
         weight: 4,
@@ -730,7 +976,7 @@
         lineCap: 'round'
       }).addTo(invasionLayerGroup);
 
-      // Add Invasion Markers
+      // Invasion Markers
       invasionPoints.forEach((p, idx) => {
         const pinHtml = `<div class="custom-invasion-pin" style="width:28px; height:28px;">${idx + 1}</div>`;
         const icon = L.divIcon({
@@ -749,7 +995,26 @@
         invasionMarkers[p.id] = marker;
       });
 
-      // 2. Add City Markers (Gold pins)
+      // 2. Impact Markers (Sky Blue pins)
+      impactPoints.forEach((p, idx) => {
+        const pinHtml = `<div class="custom-impact-pin" style="width:30px; height:30px;">⚖️</div>`;
+        const icon = L.divIcon({
+          className: 'clear-icon',
+          html: pinHtml,
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
+          popupAnchor: [0, -15]
+        });
+
+        const marker = L.marker([p.lat, p.lng], { icon: icon }).addTo(impactLayerGroup);
+        marker.bindPopup(`
+          <div class="text-xs text-sky-400 font-bold uppercase tracking-wider">${p.name}</div>
+          <div class="text-sm mt-1 text-stone-200">${p.desc}</div>
+        `);
+        impactMarkers[p.id] = marker;
+      });
+
+      // 3. City Markers (Gold pins)
       cityPoints.forEach((p, idx) => {
         const pinHtml = `<div class="custom-map-pin" style="width:30px; height:30px;">★</div>`;
         const icon = L.divIcon({
@@ -771,21 +1036,32 @@
 
     function switchMapView(mode) {
       const btnInvasion = document.getElementById('btn-view-invasion');
+      const btnImpact = document.getElementById('btn-view-impact');
       const btnCity = document.getElementById('btn-view-city');
       const panelInvasion = document.getElementById('panel-invasion');
+      const panelImpact = document.getElementById('panel-impact');
       const panelCity = document.getElementById('panel-city');
 
+      // Reset all buttons
+      [btnInvasion, btnImpact, btnCity].forEach(b => {
+        b.className = "py-2.5 px-2 rounded-lg text-xs font-semibold tracking-wider transition-all text-stone-400 hover:text-white hover:bg-white/5 text-center";
+      });
+      // Hide all panels
+      panelInvasion.classList.add('hidden');
+      panelImpact.classList.add('hidden');
+      panelCity.classList.add('hidden');
+
       if (mode === 'invasion') {
-        btnInvasion.className = "flex-1 py-2.5 px-3 rounded-lg text-xs md:text-sm font-semibold tracking-wider transition-all bg-gradient-to-r from-red-700 to-brand-wine text-white shadow";
-        btnCity.className = "flex-1 py-2.5 px-3 rounded-lg text-xs md:text-sm font-semibold tracking-wider transition-all text-stone-400 hover:text-white hover:bg-white/5";
+        btnInvasion.className = "py-2.5 px-2 rounded-lg text-xs font-semibold tracking-wider transition-all bg-gradient-to-r from-red-700 to-brand-wine text-white shadow text-center font-bold";
         panelInvasion.classList.remove('hidden');
-        panelCity.classList.add('hidden');
         resetInvasionView();
+      } else if (mode === 'impact') {
+        btnImpact.className = "py-2.5 px-2 rounded-lg text-xs font-semibold tracking-wider transition-all bg-gradient-to-r from-sky-600 to-indigo-800 text-white shadow text-center font-bold";
+        panelImpact.classList.remove('hidden');
+        resetImpactView();
       } else {
-        btnCity.className = "flex-1 py-2.5 px-3 rounded-lg text-xs md:text-sm font-semibold tracking-wider transition-all bg-gradient-to-r from-brand-gold to-brand-goldDark text-black shadow font-bold";
-        btnInvasion.className = "flex-1 py-2.5 px-3 rounded-lg text-xs md:text-sm font-semibold tracking-wider transition-all text-stone-400 hover:text-white hover:bg-white/5";
+        btnCity.className = "py-2.5 px-2 rounded-lg text-xs font-semibold tracking-wider transition-all bg-gradient-to-r from-brand-gold to-brand-goldDark text-black shadow text-center font-bold";
         panelCity.classList.remove('hidden');
-        panelInvasion.classList.add('hidden');
         resetCityView();
       }
     }
@@ -793,6 +1069,14 @@
     function resetInvasionView() {
       if (!map || !invasionPolyline) return;
       map.fitBounds(invasionPolyline.getBounds(), { padding: [50, 50] });
+    }
+
+    function resetImpactView() {
+      if (!map) return;
+      map.setView([47.5, 8.5], 5);
+      if (impactMarkers['imp_pavia']) {
+        setTimeout(() => impactMarkers['imp_pavia'].openPopup(), 400);
+      }
     }
 
     function resetCityView() {
@@ -804,7 +1088,7 @@
     function focusCoord(lat, lng, zoom, markerId) {
       if (!map) return;
       map.setView([lat, lng], zoom, { animate: true, duration: 1 });
-      const m = invasionMarkers[markerId] || cityMarkers[markerId];
+      const m = invasionMarkers[markerId] || impactMarkers[markerId] || cityMarkers[markerId];
       if (m) {
         setTimeout(() => m.openPopup(), 400);
       }
